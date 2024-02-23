@@ -27,7 +27,9 @@ aside{
     align-items: center;
     border: var(--border);
     border-radius: var(--border-radius);
-    
+    float: left; /*the 'float' CSS property floats the <aside> element to the left-hand side of its containing element '<main>'
+    (usually the <body> or a parent <div>). It allows other elements (weather div and forecast div) to flow around it.*/
+    width: 25%; /*sets the width of the <aside> element to 25% of its containing element's (<main>) width.*/
 }
 
 #search-div{
