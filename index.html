@@ -20,38 +20,39 @@
                 <button id="submit-btn">SUBMIT</button>
                 <div id="error-msg"></div>
             </div>
-            <hr/>
+
             <h1 class="header">SEARCH HISTORY:</h1>
             <div id="search-history-div">
             </div>
         </aside>
 
         <section>
-
-            <div id="location-header">
-                <div class="weather-icon">
-                    <div class="weather-location" id="current-location">Enter current location</div>
-                    <!--<img id="cloud-icon">-->
+            <div id="weather">
+                <div id="location-header">
+                    <div class="weather-icon">
+                        <div class="weather-location" id="current-location">Enter current location</div>
+                        <!--<img id="cloud-icon">-->
+                    </div>
+                </div>
+    
+                <div id="weather-info">
+                    <div class="temp">
+                        <span>Temperature:</span><span id="temp-span">0</span>
+                    </div>
+                    <div class="wind">
+                        <span>Wind:</span><span id="wind-span">0</span>
+                    </div>
+                    <div class="humidity">
+                        <span>Humidity:</span><span id="humidity-span">0</span>
+                    </div>
                 </div>
             </div>
-
-            <div id="weather-info">
-                <div class="temp">
-                    <span>Temperature:</span><span id="temp-span">0</span>
-                </div>
-                <div class="wind">
-                    <span>Wind:</span><span id="wind-span">0</span>
-                </div>
-                <div class="humidity">
-                    <span>Humidity:</span><span id="humidity-span">0</span>
-                </div>
-            </div>
+            
 
             <div id="weather-forecast">
                 <h1> 5 DAY WEATHER FORECAST</h1>
-                <hr/>
                 <div id="forecast-days">
-                    <div class="forcast-day">
+                    <div class="forecast-day">
                         <div class="date"> date1</div>
                         <div class="forecast-icon">
                             <!--<img src=""...-->

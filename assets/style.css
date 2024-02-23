@@ -1,5 +1,5 @@
 :root{
-    --main-color:  rgb(28, 28, 60);
+    --main-color:  rgb(28, 28, 60); /*only put the values here not the property and value*/
     --secondary-color: rgb(77, 77, 77);
     --font: Arial, Helvetica, sans-serif;
     --border-radius: 5px;
@@ -27,6 +27,7 @@ aside{
     align-items: center;
     border: var(--border);
     border-radius: var(--border-radius);
+    
 }
 
 #search-div{
@@ -39,4 +40,29 @@ aside{
     display: flex; 
     flex-direction: column; 
     align-items: center; 
+}
+
+#weather{
+    border: var(--border);
+    border-radius: var(--border-radius);
+}
+#location-header{
+    font-size: 25px;
+    font-weight: bold;
+}
+
+#weather-forecast{
+    border: var(--border);
+    border-radius: var(--border-radius);
+}
+
+#forecast-days{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.forecast-day{
+    border: var(--border);
+    border-radius: var(--border-radius);
 }
