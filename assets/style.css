@@ -1,0 +1,42 @@
+:root{
+    --main-color:  rgb(28, 28, 60);
+    --secondary-color: rgb(77, 77, 77);
+    --font: Arial, Helvetica, sans-serif;
+    --border-radius: 5px;
+    --border: 3px solid var(--secondary-color);
+}
+
+* {
+    box-sizing: border-box;
+  }
+
+body{
+    font-family: var(--font);
+    font-size: 16px;
+}
+
+.header{
+    background-color: var(--main-color);
+    color: white;
+    text-align: center;
+}
+
+aside{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: var(--border);
+    border-radius: var(--border-radius);
+}
+
+#search-div{
+    display: flex; /*makes this div a flex container*/
+    flex-direction: column; /*makes the main the main axis of the flex items a column [y](stack underneath e/o)*/
+    align-items: center; /*aligns the flex items in the center of the cross axis [row ie x] */
+}
+
+#search-history-div{
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+}

@@ -8,21 +8,21 @@
 </head>
 
 <body>
-    <header>
+    <header class="header">
         <h1>WEATHER DASHBOARD</h1>
     </header>
 
     <main>
         <aside>
-            <div>
-                <h1>SEARCH FOR A CITY</h1>
+            <h1 class="header">SEARCH FOR A CITY</h1>
+            <div id="search-div">
                 <input placeholder="enter a location" id="search-box"></input>
                 <button id="submit-btn">SUBMIT</button>
                 <div id="error-msg"></div>
             </div>
             <hr/>
-            <div id="search-history">
-                <h1>SEARCH HISTORY:</h1>
+            <h1 class="header">SEARCH HISTORY:</h1>
+            <div id="search-history-div">
             </div>
         </aside>
 
@@ -47,9 +47,10 @@
                 </div>
             </div>
 
-            <div id="weather-forcast">
-                <h1> 5 DAY WEATHER FORCAST</h1>
-                <div id="forcast-days">
+            <div id="weather-forecast">
+                <h1> 5 DAY WEATHER FORECAST</h1>
+                <hr/>
+                <div id="forecast-days">
                     <div class="forcast-day">
                         <div class="date"> date1</div>
                         <div class="forecast-icon">
@@ -65,7 +66,7 @@
                             <span>Humidity:</span><span>0</span>
                         </div>
                     </div>
-                    <div class="forcast-day">
+                    <div class="forecast-day">
                         <div class="date">date2</div>
                         <div class="forecast-icon">
                             <!--<img src=""...-->
@@ -80,7 +81,7 @@
                             <span>Humidity:</span><span>0</span>
                         </div>
                     </div>
-                    <div class="forcast-day">
+                    <div class="forecast-day">
                         <div class="date">date3</div>
                         <div class="forecast-icon">
                             <!--<img src=""...-->
@@ -95,7 +96,7 @@
                             <span>Humidity:</span><span>0</span>
                         </div>
                     </div>
-                    <div class="forcast-day">
+                    <div class="forecast-day">
                         <div class="date">date4</div>
                         <div class="forecast-icon">
                             <!--<img src=""...-->
@@ -110,7 +111,7 @@
                             <span>Humidity:</span><span>0</span>
                         </div>
                     </div>
-                    <div class="forcast-day">
+                    <div class="forecast-day">
                         <div class="date">date5</div>
                         <div class="forecast-icon">
                             <!--<img src=""...-->
@@ -125,6 +126,10 @@
                             <span>Humidity:</span><span>0</span>
                         </div>
                     </div>
+                    <!--using class attributes instead of ids in each forecast-day div is to simplify js operations because it allows you to
+                        iterate over all divs w/ 'date' attributes for example and perform an operation on them at once without needing to target
+                        each individual div by its unique id.
+                        its also good for CSS styling-->
     
                 </div>
                 
@@ -134,5 +139,7 @@
 
     </main>
     
+    <script src="./assets/starter.js"></script>
+    <script src="./assets/script.js"></script>
 </body>
 </html>
