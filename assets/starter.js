@@ -12,21 +12,25 @@ const searchButtonEl = document.getElementById('submit-btn');
 //add a click event listener to the submit button so it's event handler gives the search variable a value of the user's location input and calls the
 //do something function
 
+var savedCities = JSON.parse(localStorage.getItem('city-key')) || []
+//creates an array called savedCitites if there is nothing in local storage, if savedCities array is in localstorage (under the keyy 'city-key)
+//then the .forEach() method will iterate over each saved city string in the saved array and create a div with the text content (${element}) of 
+//each element in the array AKA each saved city in the array
+//e.g. ["london","manchester","paris","rome"]
+
+savedCities.forEach(function(element){
+    searchHistoryEl.innerHTML += `<div class="recent-searches">${element}<div>`
+})
+//.forEach is used to itterate over each element in a specified array and apply a function to each one.
+
 //let keyword is used to declare 'search', so it's initially undefined. Later in the clickSearchBtn funtion, the value of search is assigned
 //based on whatever location the user inputs into the search box:
-
-var savedUserInput = localStorage.getItem('city')
-if(savedUserInput === null ){
-    searchHistoryEl.innerHTML += ''
-}else{
-    searchHistoryEl.innerHTML += `<div class="recent-searches">${savedUserInput}<div>`
-}
-
 let search;
 function clickSearchBtn(){
    search = searchInputEl.value
    searchHistoryEl.innerHTML += `<div class="recent-searches">${search}<div>`
-   localStorage.setItem('city', search)
+   savedCities.push(search) // pushes each searched city into local storage array (e.g. ["london","manchester","paris","rome"])
+   localStorage.setItem('city-key' , JSON.stringify(savedCities))
 
     doSomething() //this function is called to use the users location input to find it's lat and lon using a fetch request to the weather api
 }
