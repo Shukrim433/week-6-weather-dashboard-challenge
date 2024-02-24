@@ -2,6 +2,8 @@ const WEATHER_API_BASE_URL = 'https://api.openweathermap.org';
 const WEATHER_API_KEY = 'f23ee9deb4e1a7450f3157c44ed020e1';
 const MAX_DAILY_FORECAST = 5;
 
+var searchHistoryEl = document.getElementById('search-history-div')
+
 //get the search box (used to get the lat and lon w/ the geo weather api from user location input) and search button (to display the data in the
 //weather and forecast divs using the weather api):
 const searchInputEl = document.getElementById('search-box');
@@ -15,6 +17,8 @@ const searchButtonEl = document.getElementById('submit-btn');
 let search;
 function clickSearchBtn(){
    search = searchInputEl.value
+   searchHistoryEl.innerHTML += `<div class="recent-searches">${search}<div>`
+
     doSomething() //this function is called to use the users location input to find it's lat and lon using a fetch request to the weather api
 }
 searchButtonEl.addEventListener('click', clickSearchBtn)
