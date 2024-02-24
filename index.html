@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>shukri's weather dashboard</title>
     <link rel="stylesheet" href="./assets/style.css"/>
+    <script
+      src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+      integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
+      crossorigin="anonymous"
+    ></script>
 </head>
 
 <body>
@@ -30,7 +35,7 @@
             <div id="weather">
                 <div id="location-header">
                     <div class="weather-icon">
-                        <div class="weather-location" id="current-location">Enter current location</div>
+                        <div class="weather-location" id="current-location">Enter current location</div><span id="current-date">0</span>
                         <!--<img id="cloud-icon">-->
                     </div>
                 </div>
