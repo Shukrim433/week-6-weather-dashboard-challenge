@@ -43,6 +43,10 @@ aside{
     flex-direction: column; 
     align-items: center; 
 }
+.recent-searches{
+    border: var(--border);
+    border-radius: var(--border-radius);  
+}
 
 #weather{
     border: var(--border);
