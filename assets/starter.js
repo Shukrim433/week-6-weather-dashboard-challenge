@@ -3,6 +3,11 @@ const WEATHER_API_KEY = 'f23ee9deb4e1a7450f3157c44ed020e1';
 const MAX_DAILY_FORECAST = 5;
 
 var searchHistoryEl = document.getElementById('search-history-div')
+var tempSpanEl = document.getElementById('temp-span')
+var windSpanEl = document.getElementById('wind-span')
+var humiditySpanEl = document.getElementById('humidity-span')
+var currentLocationEl = document.getElementById('current-location')
+var currentDateSpanEl = document.getElementById('current-date')
 
 //get the search box (used to get the lat and lon w/ the geo weather api from user location input) and search button (to display the data in the
 //weather and forecast divs using the weather api):
@@ -34,7 +39,6 @@ function clickSearchBtn(){
 
     doSomething() //this function is called to use the users location input to find it's lat and lon using a fetch request to the weather api
 }
-searchButtonEl.addEventListener('click', clickSearchBtn)
 
 
 // Lookup the location to get the Lat/Lon
@@ -52,6 +56,7 @@ function doSomething() {
             //const location = data[0];
             var lat = data[0].lat;
             var lon = data[0].lon;
+            currentLocationEl.textContent = data[0].name
 
             // Get the Weather for the cached location (input the defined lat and lon variables into the query string so it searches for the weather of that
             //specific location)
@@ -64,10 +69,27 @@ function doSomething() {
                     console.log(data);
 
                     // Show the Current Weather Forecast
+                    humiditySpanEl.textContent = data.current.humidity
+                    windSpanEl.textContent = data.current.wind_speed
+                    tempSpanEl.textContent = data.current.temp
+                    var currentDate = data.current.dt
+                    currentDateSpanEl.textContent = dayjs.unix(currentDate).format('YYYY-MM-DD')
                     
-                    // Show the 5 Day Weather Forecast
+                    //Show the 5 Day Weather Forecast
+                    /*$('#forecast-day').each(function(){
+                        var (i=0 ; i<5 ; i++){
+                            $(this).children(.temp).eq[1] = data.daily[i].
+                            $(this).children(.wind).eq[1] = data.daily[i].
+                            $(this).children(.humidity).eq[1] = data.daily[i].
+
+                        }
+                    })
+                    */
+
                           
                     
                 })
             })
 }
+
+searchButtonEl.addEventListener('click', clickSearchBtn)
