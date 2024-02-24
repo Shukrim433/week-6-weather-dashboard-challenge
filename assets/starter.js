@@ -14,14 +14,24 @@ const searchButtonEl = document.getElementById('submit-btn');
 
 //let keyword is used to declare 'search', so it's initially undefined. Later in the clickSearchBtn funtion, the value of search is assigned
 //based on whatever location the user inputs into the search box:
+
+var savedUserInput = localStorage.getItem('city')
+if(savedUserInput === null ){
+    searchHistoryEl.innerHTML += ''
+}else{
+    searchHistoryEl.innerHTML += `<div class="recent-searches">${savedUserInput}<div>`
+}
+
 let search;
 function clickSearchBtn(){
    search = searchInputEl.value
    searchHistoryEl.innerHTML += `<div class="recent-searches">${search}<div>`
+   localStorage.setItem('city', search)
 
     doSomething() //this function is called to use the users location input to find it's lat and lon using a fetch request to the weather api
 }
 searchButtonEl.addEventListener('click', clickSearchBtn)
+
 
 // Lookup the location to get the Lat/Lon
 function doSomething() {
