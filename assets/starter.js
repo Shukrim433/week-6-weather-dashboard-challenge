@@ -8,6 +8,7 @@ var windSpanEl = document.getElementById('wind-span')
 var humiditySpanEl = document.getElementById('humidity-span')
 var currentLocationEl = document.getElementById('current-location')
 var currentDateSpanEl = document.getElementById('current-date')
+var cloudIconImgEl = document.getElementById('cloud-icon')
 
 //get the search box (used to get the lat and lon w/ the geo weather api from user location input) and search button (to display the data in the
 //weather and forecast divs using the weather api):
@@ -40,8 +41,9 @@ function clickSearchBtn(){
     doSomething() //this function is called to use the users location input to find it's lat and lon using a fetch request to the weather api
 }
 
+
 //this adds click event listener to the search history cities and displays the weather and forecast the same way (but no saving to local storage)
-$('.recent-searches').on('click', function(){
+$('.recent-searches').on('click' , function(){
     search = $(this).text()
     doSomething()
 })
@@ -80,6 +82,13 @@ function doSomething() {
                     tempSpanEl.textContent = data.current.temp
                     var currentDate = data.current.dt
                     currentDateSpanEl.textContent = dayjs.unix(currentDate).format('YYYY-MM-DD')
+                    //cloudIconImgEl.innerHTML = data.current.weather.id
+                    var weatherIconURL = `http://openweathermap.org/img/wn/${data.current.weather[0].icon}.png`;
+                    cloudIconImgEl.setAttribute('src' , weatherIconURL)
+                    //you have to have the [0] after weather
+                    //
+                    //got the info on how to add the cloud icons to the page from 'https://www.shecodes.io/athena/37844-how-to-add-weather-visuals-using-javascript-and-apis'
+                    
                     
                     //Show the 5 Day Weather Forecast
                     $('#forecast-days .forecast-day').each(function(index){// index is a parameter used 
@@ -112,5 +121,4 @@ function doSomething() {
                 })
             })
 }
-
 searchButtonEl.addEventListener('click', clickSearchBtn)
