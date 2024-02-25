@@ -76,16 +76,31 @@ function doSomething() {
                     currentDateSpanEl.textContent = dayjs.unix(currentDate).format('YYYY-MM-DD')
                     
                     //Show the 5 Day Weather Forecast
-                    /*$('#forecast-day').each(function(){
-                        var (i=0 ; i<5 ; i++){
-                            $(this).children(.temp).eq[1] = data.daily[i].
-                            $(this).children(.wind).eq[1] = data.daily[i].
-                            $(this).children(.humidity).eq[1] = data.daily[i].
-
-                        }
+                    $('#forecast-days .forecast-day').each(function(index){// index is a parameter used 
+                         
+                            var unixDate = data.daily[index].dt
+                            var normalDate = dayjs.unix(unixDate).format('YYYY-MM-DD')
+                            $(this).children('.date').text('Date: '+ normalDate)
+                            $(this).children('.temp').text('Temp: '+ data.daily[index].temp.day)
+                            $(this).children('.wind').text('Wind: '+ data.daily[index].wind_speed)
+                            $(this).children('.humidity').text('Humidity: ' +data.daily[index].humidity)
+                        
                     })
-                    */
 
+                    //in the .each() method, the callback function can accept two parameters: index and element
+                    //the value of the idex parameter will always start at 0, this represents the index position of the first element that matchhes 
+                    //the specified css selector in the $() and because were using the .each() method the value of index incraments by one each time for
+                    //each element with the specified css selector.
+                    //SO because there are 5 elements w/ the '.forecast-day' class attribute, the value of index only goes up to 5.
+                    //The daily array has 7 object elements, so by using [index] youre able to iterate through the daily array, starting from the index
+                    //position 0 to 5 (day 1 to 5)
+                    
+                    /*if (index < 5){
+                        $(this).find('.date').text(data.daily[index].dt)
+                        $(this).find('.temp').children('span').text(data.daily[index].temp[0])
+                        $(this).find('.wind').children('span').text(data.daily[index].wind_speed)
+                        $(this).find('.humidity').children('span').text(data.daily[index].humidity)
+                    }*/
                           
                     
                 })
