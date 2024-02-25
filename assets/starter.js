@@ -85,8 +85,8 @@ function doSomething() {
                     //cloudIconImgEl.innerHTML = data.current.weather.id
                     var weatherIconURL = `http://openweathermap.org/img/wn/${data.current.weather[0].icon}.png`;
                     cloudIconImgEl.setAttribute('src' , weatherIconURL)
-                    //you have to have the [0] after weather
-                    //
+                    //you have to have the [0] to access the first element (an object) in the weather array - which holds the icon property 
+                    //has to be in an img element and use src to add the .png file link 
                     //got the info on how to add the cloud icons to the page from 'https://www.shecodes.io/athena/37844-how-to-add-weather-visuals-using-javascript-and-apis'
                     
                     
@@ -99,6 +99,8 @@ function doSomething() {
                             $(this).children('.temp').text('Temp: '+ data.daily[index].temp.day)
                             $(this).children('.wind').text('Wind: '+ data.daily[index].wind_speed)
                             $(this).children('.humidity').text('Humidity: ' +data.daily[index].humidity)
+                            var forecastIconURL = `http://openweathermap.org/img/wn/${data.daily[index].weather[0].icon}.png`;
+                            $(this).children('.forecast-icon').attr('src' , forecastIconURL)
                         
                     })
 
