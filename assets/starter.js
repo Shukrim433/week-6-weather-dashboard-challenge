@@ -40,6 +40,12 @@ function clickSearchBtn(){
     doSomething() //this function is called to use the users location input to find it's lat and lon using a fetch request to the weather api
 }
 
+//this adds click event listener to the search history cities and displays the weather and forecast the same way (but no saving to local storage)
+$('.recent-searches').on('click', function(){
+    search = $(this).text()
+    doSomething()
+})
+
 
 // Lookup the location to get the Lat/Lon
 function doSomething() {
