@@ -33,7 +33,7 @@ savedCities.forEach(function(element){
 //based on whatever location the user inputs into the search box:
 let search;
 function clickSearchBtn(){
-   search = searchInputEl.value
+    search = searchInputEl.value
    searchHistoryEl.innerHTML += `<div class="recent-searches">${search}<div>`
    savedCities.push(search) // pushes each searched city into local storage array (e.g. ["london","manchester","paris","rome"])
    localStorage.setItem('city-key' , JSON.stringify(savedCities))
@@ -42,9 +42,12 @@ function clickSearchBtn(){
 }
 
 
-//this adds click event listener to the search history cities and displays the weather and forecast the same way (but no saving to local storage)
-$('.recent-searches').on('click' , function(){
-    search = $(this).text()
+//this adds click event listener to the document (specifying the .recent-searches divs as the child to listen to) and displays the weather and forecast the same way (but no saving to local storage)
+//Using event delegation with $(document).on('click', '.recent-searches', ...) is typically preferred when you have dynamically added elements 
+//or when you want to handle events on elements that may not exist at the time the event handler is attached. It ensures that events are properly 
+//handled even for elements added to the DOM after the initial page load.
+$(document).on('click' , '.recent-searches', function(event){
+    search = $(this).text() //this keyword refers to the specific .recent-searches element that triggered the click event
     doSomething()
 })
 
@@ -111,6 +114,12 @@ function doSomething() {
                     //SO because there are 5 elements w/ the '.forecast-day' class attribute, the value of index only goes up to 5.
                     //The daily array has 7 object elements, so by using [index] youre able to iterate through the daily array, starting from the index
                     //position 0 to 5 (day 1 to 5)
+                    
+                    
+                    
+                    
+                    
+                    
                     
                     /*if (index < 5){
                         $(this).find('.date').text(data.daily[index].dt)
