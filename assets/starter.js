@@ -28,6 +28,9 @@ savedCities.forEach(function(element){
     searchHistoryEl.innerHTML += `<div class="recent-searches">${element}<div>`
 })
 //.forEach is used to itterate over each element in a specified array and apply a function to each one.
+//If you were to use searchHistoryEl.innerHTML =, it would replace the existing content in the searchHistoryEl entirely with the new content,
+//rather than adding to it.
+
 
 //let keyword is used to declare 'search', so it's initially undefined. Later in the clickSearchBtn funtion, the value of search is assigned
 //based on whatever location the user inputs into the search box:
@@ -40,6 +43,7 @@ function clickSearchBtn(){
 
     doSomething() //this function is called to use the users location input to find it's lat and lon using a fetch request to the weather api
 }
+
 
 
 //this adds click event listener to the document (specifying the .recent-searches divs as the child to listen to) and displays the weather and forecast the same way (but no saving to local storage)
