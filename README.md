@@ -33,6 +33,7 @@ Then in the fetch function we are able to define the apiUrl variable in the loca
 -To show the 5 day weather forecast in the weather forecast <div> i added a .each() method to all divs with the 'forecast-day' class attribute. The callback function in .each had the parameter of 'index'.The value of the idex parameter starts at 0, which represents the index position of the first element that matches the specified css selector '.forecast-day'. So because were using the .each meathod the value of index increases by one for each '.forecast-day' <div>. So since there are 5 '.forecast-day' <div>s the value of index goes up to 5. So what is the purpose of the index parameter incramenting to 5? I it so that we can itterate through the daily array, starting from the index position 0 to 5 (day 1 to 5) [The daily array has 7 object elements] e.g. [$(this).children('.temp').text('Temp: '+ data.daily[index].temp.day)]
 I also used jquery and the 'this' keyword to set the text content of the elements in the weather forecast div. In this section i used dayjs to format the unix timestamp and display it as the date for eachday.                
 
+- Lastly i added a click event listener to the document (specifying the .recent-searches divs as the child to listen to) and displays the weather and forecast the same way (but no saving to local storage). Because, using event delegation with $(document).on('click', '.recent-searches', ...) is typically preferred when you have dynamically added elements like the 'recent-searches' divs.
 
 ## Webpage
 
@@ -42,4 +43,4 @@ I also used jquery and the 'this' keyword to set the text content of the element
 
 
 - This is a link to the deployed webpage:
-
+https://shukrim433.github.io/week-6-weather-dashboard-challenge/
