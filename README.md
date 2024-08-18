@@ -39,7 +39,8 @@ I also used jquery and the 'this' keyword to set the text content of the element
 
 - This is a screenshot of the deployed application:
 
-![ screenshot of the webpage](./assets/weather%20dashboard.png)
+![image](https://github.com/user-attachments/assets/0f7b0fef-f074-4f72-b7b3-c97d5cdd3497)
+
 
 
 - This is a link to the deployed webpage:
