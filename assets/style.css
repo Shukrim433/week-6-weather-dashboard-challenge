@@ -1,78 +1,134 @@
-:root{
-    --main-color:  rgb(28, 28, 60); /*only put the values here not the property and value*/
-    --secondary-color: rgb(77, 77, 77);
-    --font: Arial, Helvetica, sans-serif;
-    --border-radius: 5px;
-    --border: 3px solid var(--secondary-color);
+:root {
+  --main-color: rgb(
+    28,
+    28,
+    60
+  ); /*only put the values here not the property and value*/
+  --secondary-color: rgb(77, 77, 77);
+  --dark-blue: #464655;
+  --light-blue: #5fb2ff;
+  --pale-blue: #aee2e553;
+  --font: Arial, Helvetica, sans-serif;
+  --border-radius: 5px;
+  --border: 1px solid black;
 }
 
 * {
-    box-sizing: border-box;
-  }
-
-body{
-    font-family: var(--font);
-    font-size: 16px;
+  box-sizing: border-box;
 }
 
-.header{
-    background-color: var(--main-color);
-    color: white;
-    text-align: center;
+body {
+  font-family: var(--font);
+  font-size: 16px;
 }
 
-aside{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: var(--border);
-    border-radius: var(--border-radius);
-    float: left; /*the 'float' CSS property floats the <aside> element to the left-hand side of its containing element '<main>'
+.header {
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+aside {
+  display: flex;
+  padding: 2%;
+  flex-direction: column;
+  align-items: center;
+  border: var(--border);
+  border-radius: var(--border-radius);
+  background-color: var(--pale-blue);
+  float: left; /*the 'float' CSS property floats the <aside> element to the left-hand side of its containing element '<main>'
     (usually the <body> or a parent <div>). It allows other elements (weather div and forecast div) to flow around it.*/
-    width: 25%; /*sets the width of the <aside> element to 25% of its containing element's (<main>) width.*/
+  width: 25%; /*sets the width of the <aside> element to 25% of its containing element's (<main>) width.*/
+  margin: 10px;
 }
 
-#search-div{
-    display: flex; /*makes this div a flex container*/
-    flex-direction: column; /*makes the main the main axis of the flex items a column [y](stack underneath e/o)*/
-    align-items: center; /*aligns the flex items in the center of the cross axis [row ie x] */
+input {
+  border-radius: 5px;
+  border: var(--border);
+  padding: 2%;
+  margin: 10px;
+}
+#submit-btn {
+  border-radius: 5px;
+  background-color: var(--dark-blue);
+  color: white;
+  padding: 2%;
+  min-width: 100px;
+  border: 1px, solid, var(--dark-blue);
 }
 
-#search-history-div{
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
+#submit-btn:hover {
+cursor: pointer;
 }
+
+#search-div {
+  display: flex; /*makes this div a flex container*/
+  flex-direction: column; /*makes the main the main axis of the flex items a column [y](stack underneath e/o)*/
+  align-items: center; /*aligns the flex items in the center of the cross axis [row ie x] */
+  margin-bottom: 20px;
+}
+
+#search-history-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#history-div {
+  border: 1px, dashed, black;
+  background-color:rgba(0, 0, 0, 0.107);
+  padding: 4%;
+  border-radius: 10px;
+}
+
 .recent-searches{
-    border: var(--border);
-    border-radius: var(--border-radius);  
+    border-bottom: 1px solid gray;
+    
 }
 
-#weather{
-    border: var(--border);
-    border-radius: var(--border-radius);
-    float: right;
-    width: 75%;
-}
-#location-header{
-    font-size: 25px;
-    font-weight: bold;
+.recent-searches:hover{
+    cursor: pointer;
+    
 }
 
-#weather-forecast{
-    border: var(--border);
-    border-radius: var(--border-radius);
-    float: right;
-    width: 75%;
+#weather {
+  border: var(--border);
+  border-radius: var(--border-radius);
+  float: right;
+  margin-top: 10px;
+  padding: 2%;
+  background-color: var(--light-blue);
+  width: 70%;
+}
+#location-header {
+  font-size: 25px;
+  font-weight: bold;
 }
 
-#forecast-days{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+#weather-forecast {
+  background-color: var(--dark-blue);
+  margin-top: 10px;
+  padding: 2%;
+  border: var(--border);
+  border-radius: var(--border-radius);
+  float: right;
+  width: 70%;
+  color: white;
 }
-.forecast-day{
-    border: var(--border);
-    border-radius: var(--border-radius);
+
+#forecast-days {
+  color: black;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+.forecast-day {
+  background-color: white;
+  margin: 5px;
+  padding: 2%;
+  border: var(--border);
+  border-radius: var(--border-radius);
 }
